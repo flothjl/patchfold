@@ -25,6 +25,42 @@ Patchfold starts from a different premise:
 - you own the review and provenance graph around your work
 - forges are sync and publishing targets, not the authority
 
+## Proof in the Wild
+
+Some of the most important software in the world already collaborates through
+patches instead of platform-native pull requests.
+
+The [Linux kernel](https://docs.kernel.org/process/submitting-patches.html),
+[Git itself](https://git-scm.com/docs/SubmittingPatches),
+[PostgreSQL](https://wiki.postgresql.org/wiki/Submitting_a_Patch),
+[QEMU](https://www.qemu.org/docs/master/devel/submitting-a-patch.html),
+[Xen](https://wiki.xenproject.org/wiki/Submitting_Xen_Project_Patches), and
+many other projects use email-centered patch workflows because patches are
+portable, inspectable, replyable, archivable, and independent of any single code
+forge. A patch can move through mailing lists, local clones, maintainer trees,
+release branches, and long-lived public archives without needing GitHub or
+GitLab to be the system of record.
+
+That model has real strengths:
+
+- the patch is the unit of review
+- the discussion can outlive any hosting platform
+- maintainers can apply, amend, queue, and forward work with plain git tools
+- contributors can participate without joining one company's collaboration silo
+- project history stays closer to the repository than to a web app
+
+But the experience is clunky for most modern teams.
+
+Email patch workflows ask contributors to understand mailing list etiquette,
+`git format-patch`, `git send-email`, versioned patch series, reviewer-specific
+CC lists, archive links, threading, local application with `git am`, and the
+social norms of each project. The result is powerful and sovereign, but hard to
+enter, hard to automate, and hard to connect to the review expectations teams
+learned from pull requests.
+
+Patchfold is an attempt to keep the sovereignty of patches while giving them a
+modern collaboration surface.
+
 ## The Idea
 
 Patchfold treats the patch as the primary unit of collaboration.
