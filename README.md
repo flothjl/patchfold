@@ -78,6 +78,42 @@ Patchfold should help developers:
 - preserve collaboration metadata across hosting migrations
 - record human and agent contributions as auditable changes
 
+## What Needs to Exist
+
+For collaboration to be portable, the patch cannot be the only portable object.
+The surrounding workflow has to move too.
+
+Patchfold needs a small set of git-adjacent collaboration objects:
+
+- patch intent and summary
+- patch stack dependencies
+- review comments and requested changes
+- approvals and maintainer decisions
+- test results and build evidence
+- identity and signature metadata
+- agent actions and generated work logs
+
+Those objects should be:
+
+- stored locally enough to survive offline work
+- exportable as normal git artifacts when needed
+- syncable through more than one network path
+- readable without one company's web UI
+- attributable to stable identities instead of platform accounts alone
+- private or encrypted when the collaboration context requires it
+
+This is where modern self-sovereign infrastructure helps. DID-addressed
+identity, protocol-scoped records, encrypted data, subscriptions, and
+live/durable sync give Patchfold a way to model collaboration as portable data
+rather than platform state. A system like [Enbox](https://github.com/enboxorg/enbox)
+could be one transport and storage layer for that: not the center of Patchfold's
+identity, but a useful substrate for moving patch metadata, reviews, and
+provenance between collaborators who should control their own endpoints.
+
+The important part is the boundary: Patchfold should define the git-native
+collaboration model. Transports such as DWNs, email, forges, or future relays
+should move that model without owning it.
+
 ## Non-Goals
 
 Patchfold is not trying to replace git.
